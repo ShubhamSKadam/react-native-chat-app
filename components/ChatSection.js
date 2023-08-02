@@ -1,5 +1,13 @@
-import { FlatList, StyleSheet, Text, View, Image } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 function renderChatData({ item }) {
   return (
@@ -26,14 +34,17 @@ function renderChatData({ item }) {
 }
 
 const ChatSection = ({ dummyData }) => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.listContainer}>
-      <FlatList
-        data={dummyData}
-        renderItem={renderChatData}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <Pressable onPress={() => navigation.navigate("Chats")}>
+      <View style={styles.listContainer}>
+        <FlatList
+          data={dummyData}
+          renderItem={renderChatData}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </Pressable>
   );
 };
 
