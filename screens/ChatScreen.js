@@ -1,6 +1,14 @@
-import { FlatList, StyleSheet, Text, View, Image } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 import React from "react";
 import { dummyData } from "../dummyData";
+import { Ionicons } from "@expo/vector-icons";
 
 function renderingChats({ item }) {
   return (
@@ -42,6 +50,14 @@ const ChatScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList data={dummyData[0].chatHistory} renderItem={renderingChats} />
+      <View style={styles.InputContainer}>
+        <Ionicons name="camera" size={35} color="black" />
+        <TextInput
+          placeholder="Type Your Message Here..."
+          style={styles.textInput}
+        />
+        <Ionicons name="send" size={35} color="black" />
+      </View>
     </View>
   );
 };
@@ -54,6 +70,20 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingVertical: 10,
+  },
+  InputContainer: {
+    flexDirection: "row",
+    marginBottom: 18,
+    height: 50,
+    alignItems: "center",
+    justifyContent:'space-around'
+  },
+  textInput: {
+    minWidth: 250,
+    backgroundColor: "#f1f1f1",
+    padding:18,
+    borderRadius:20,
+    fontSize:18,
   },
   profileImage: {
     height: 60,
@@ -79,13 +109,13 @@ const styles = StyleSheet.create({
   },
   senderText: {
     marginRight: 8,
-    maxWidth:300,
+    maxWidth: 300,
   },
   receiverText: {
     marginLeft: 8,
-    maxWidth:300,
+    maxWidth: 300,
   },
-  chatText:{
-    fontSize:18,
-  }
+  chatText: {
+    fontSize: 18,
+  },
 });

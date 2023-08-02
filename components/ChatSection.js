@@ -9,42 +9,42 @@ import {
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-function renderChatData({ item }) {
+function renderChatData(item, navigation) {
   return (
     //container
-    <View style={styles.container}>
-      {/* Profile Image */}
-      <View>
-        <Image source={item.profileImage} style={styles.imageProfile} />
-      </View>
-
-      {/* Name and recent chat */}
-      <View style={styles.nameRecentContainer}>
-        <View style={styles.userNameContainer}>
-          <Text style={styles.usernameText}>{item.username}</Text>
+    <Pressable onPress={() => navigation.navigate("Chats")}>
+      <View style={styles.container}>
+        {/* Profile Image */}
+        <View>
+          <Image source={item.profileImage} style={styles.imageProfile} />
         </View>
 
-        <View style={styles.chatHistoryContainer}>
-          <Text style={styles.grayText}>{item.chatHistory[0].sent}</Text>
-          <Text style={styles.grayText}>{item.timeStamp}</Text>
+        {/* Name and recent chat */}
+        <View style={styles.nameRecentContainer}>
+          <View style={styles.userNameContainer}>
+            <Text style={styles.usernameText}>{item.username}</Text>
+          </View>
+
+          <View style={styles.chatHistoryContainer}>
+            <Text style={styles.grayText}>{item.chatHistory[0].sent}</Text>
+            <Text style={styles.grayText}>{item.timeStamp}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
 const ChatSection = ({ dummyData }) => {
   const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate("Chats")}>
-      <View style={styles.listContainer}>
-        <FlatList
-          data={dummyData}
-          renderItem={renderChatData}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
-    </Pressable>
+    <View style={styles.listContainer}>
+      <FlatList
+        data={dummyData}
+        renderItem={({ item }) => renderChatData(item, navigation)}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
   );
 };
 

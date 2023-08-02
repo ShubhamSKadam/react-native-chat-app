@@ -1,21 +1,32 @@
-import { FlatList, StyleSheet, Text, View, Image } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
-function renderFavProfiles({ item }) {
+function renderFavProfiles(item, navigation) {
   return (
-    <View style={styles.container}>
-      <Image source={item.profileImage} style={styles.profileImg} />
-      <Text style={styles.profileText}>{item.username}</Text>
-    </View>
+    <Pressable onPress={()=> navigation.navigate('Chats')}>
+      <View style={styles.container}>
+        <Image source={item.profileImage} style={styles.profileImg} />
+        <Text style={styles.profileText}>{item.username}</Text>
+      </View>
+    </Pressable>
   );
 }
 
 const FavoritesSection = ({ dummyData }) => {
+  const navigation = useNavigation();
   return (
     <View>
       <FlatList
         data={dummyData}
-        renderItem={renderFavProfiles}
+        renderItem={({ item }) => renderFavProfiles(item, navigation)}
         horizontal={true}
         keyExtractor={(item) => item.id}
       />
