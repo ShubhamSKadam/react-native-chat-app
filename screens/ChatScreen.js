@@ -10,7 +10,7 @@ function renderingChats({ item }) {
       <View style={[styles.senderContainer, styles.messageContainer]}>
         {/*Chat Box  */}
         <View style={[styles.chatBox, styles.senderText]}>
-          <Text>{item.sent}</Text>
+          <Text style={styles.chatText}>{item.sent}</Text>
         </View>
 
         {/* Profile Image */}
@@ -31,7 +31,7 @@ function renderingChats({ item }) {
 
         {/*Chat Box  */}
         <View style={[styles.chatBox, styles.receiverText]}>
-          <Text>{item.reply}</Text>
+          <Text style={styles.chatText}>{item.reply}</Text>
         </View>
       </View>
     </View>
@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
   },
   chatBox: {
     backgroundColor: "#f1f1f1",
-    padding: 18,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
     borderRadius: 18,
   },
   messageContainer: {
@@ -78,8 +79,13 @@ const styles = StyleSheet.create({
   },
   senderText: {
     marginRight: 8,
+    maxWidth:300,
   },
   receiverText: {
     marginLeft: 8,
+    maxWidth:300,
   },
+  chatText:{
+    fontSize:18,
+  }
 });
