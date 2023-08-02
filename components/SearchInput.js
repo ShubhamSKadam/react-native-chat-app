@@ -25,15 +25,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     borderRadius: 8,
     backgroundColor: "#f1f1f1",
-    alignItems:'center',
+    alignItems: "center",
   },
   image: {
     height: 15,
     width: 15,
-    marginLeft:8,
+    marginLeft: 8,
   },
   textInput: {
     marginLeft: 8,
-    fontSize:18
+    fontSize: 18,
   },
 });

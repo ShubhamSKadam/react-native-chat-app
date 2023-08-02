@@ -11,8 +11,8 @@ function renderChatData({ item }) {
       </View>
 
       {/* Name and recent chat */}
-      <View>
-        <View>
+      <View style={styles.nameRecentContainer}>
+        <View style={styles.userNameContainer}>
           <Text style={styles.usernameText}>{item.username}</Text>
         </View>
 
@@ -28,7 +28,11 @@ function renderChatData({ item }) {
 const ChatSection = ({ dummyData }) => {
   return (
     <View style={styles.listContainer}>
-      <FlatList data={dummyData} renderItem={renderChatData} />
+      <FlatList
+        data={dummyData}
+        renderItem={renderChatData}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };
@@ -55,5 +59,11 @@ const styles = StyleSheet.create({
   },
   grayText: {
     color: "gray",
+  },
+  nameRecentContainer: {
+    paddingHorizontal: 8,
+  },
+  userNameContainer: {
+    marginBottom: 5,
   },
 });

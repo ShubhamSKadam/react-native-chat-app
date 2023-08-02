@@ -17,6 +17,7 @@ const FavoritesSection = ({ dummyData }) => {
         data={dummyData}
         renderItem={renderFavProfiles}
         horizontal={true}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );
