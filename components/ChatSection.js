@@ -24,13 +24,19 @@ function renderChatData({ item }) {
     </View>
   );
 }
+
 const ChatSection = ({ dummyData }) => {
-  return <FlatList data={dummyData} renderItem={renderChatData} />;
+  return (
+    <View style={styles.listContainer}>
+      <FlatList data={dummyData} renderItem={renderChatData} />
+    </View>
+  );
 };
 
 export default ChatSection;
 
 const styles = StyleSheet.create({
+  listContainer: {},
   container: {
     flexDirection: "row",
     alignItems: "center",

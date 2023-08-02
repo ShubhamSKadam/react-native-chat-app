@@ -12,11 +12,13 @@ function renderFavProfiles({ item }) {
 
 const FavoritesSection = ({ dummyData }) => {
   return (
-    <FlatList
-      data={dummyData}
-      renderItem={renderFavProfiles}
-      horizontal={true}
-    />
+    <View>
+      <FlatList
+        data={dummyData}
+        renderItem={renderFavProfiles}
+        horizontal={true}
+      />
+    </View>
   );
 };
 
