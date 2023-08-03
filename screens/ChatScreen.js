@@ -12,8 +12,6 @@ import { dummyData } from "../dummyData";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ChatSlice } from "../store/ChatSlice";
 
 function renderingChats(item, itemUserImage, itemProfileImage) {
   return (
@@ -54,12 +52,6 @@ const ChatScreen = ({ route }) => {
   const { item } = route.params;
   const itemUserImage = item.userImage;
   const itemProfileImage = item.profileImage;
-
-  const dispatch = useDispatch();
-
-  dispatch(ChatSlice.actions.setSelectedUser(item.id));
-  const data = useSelector((state) => state.Chats.selectedUser);
-  console.log("ChatInnerScreen", data);
 
   const navigation = useNavigation();
 

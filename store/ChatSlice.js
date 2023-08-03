@@ -12,7 +12,7 @@ export const ChatSlice = createSlice({
   reducers: {
     setSelectedUser: (state, action) => {
       state.selectedUser = state.messageData.find(
-        (user) => user.id === action.payload
+        (user) => user.id == action.payload
       );
     },
   },
