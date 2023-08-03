@@ -5,12 +5,13 @@ import FavoritesSection from "../components/FavoritesSection";
 import React from "react";
 import ChatSection from "../components/ChatSection";
 import { dummyData } from "../dummyData";
-import { useDispatch, useSelector } from "react-redux";
 
 const HomeScreen = () => {
   const data = useSelector((state) => state.Chats.messageData);
+  console.log("HomeScreen", data);
+
   const [searchText, setSearchText] = useState("");
-  const [filterChatData, setFilterChatData] = useState(data);
+  const [filterChatData, setFilterChatData] = useState(dummyData);
 
   const handleSearch = (text) => {
     setSearchText(text);
