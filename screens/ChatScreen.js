@@ -29,17 +29,19 @@ function renderingChats(item, itemUserImage, itemProfileImage) {
       </View>
 
       {/* Receiver */}
-      <View style={[styles.receiverContainer, styles.messageContainer]}>
-        {/* Profile Image */}
-        <View>
-          <Image source={itemProfileImage} style={styles.profileImage} />
-        </View>
+      {item.reply != null ? (
+        <View style={[styles.receiverContainer, styles.messageContainer]}>
+          {/* Profile Image */}
+          <View>
+            <Image source={itemProfileImage} style={styles.profileImage} />
+          </View>
 
-        {/*Chat Box  */}
-        <View style={[styles.chatBox, styles.receiverText]}>
-          <Text style={styles.chatText}>{item.reply}</Text>
+          {/*Chat Box  */}
+          <View style={[styles.chatBox, styles.receiverText]}>
+            <Text style={styles.chatText}>{item.reply}</Text>
+          </View>
         </View>
-      </View>
+      ) : null}
     </View>
   );
 }

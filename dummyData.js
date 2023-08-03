@@ -21,7 +21,7 @@ export const dummyData = [
       },
       {
         sent: "Anyways I'll finish it up now",
-        reply: "okay bro. All the best.  🥳",
+        // reply: "okay bro. All the best.  🥳",
       },
     ],
     timeStamp: "22:10",
