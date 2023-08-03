@@ -77,12 +77,9 @@ const ChatScreen = ({ route }) => {
   }
 
   function sendTextHandler() {
-    if (inputMsg !== "") {
-      const tempMsgs = [...chatMsgs];
-      setChatMsgs([...tempMsgs, { sent: inputMsg }]);
-      // chatMsgs.push({ sent: inputMsg });
-      setInputMsg("");
-    }
+    const tempMsgs = [...chatMsgs];
+    setChatMsgs([...tempMsgs, { sent: inputMsg }]);
+    // chatMsgs.push({ sent: inputMsg });
   }
 
   return (
@@ -99,7 +96,6 @@ const ChatScreen = ({ route }) => {
         <Ionicons name="camera" size={35} color="black" />
         <TextInput
           placeholder="Type Your Message Here..."
-          value={inputMsg}
           style={styles.textInput}
           onChangeText={textInputHandler}
         />

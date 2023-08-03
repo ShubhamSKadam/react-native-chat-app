@@ -60,7 +60,6 @@ export const dummyData = [
     id: 4,
     username: "Aditya",
     profileImage: require("./assets/Images/profilePics/batman.jpg"),
-    userImage: require("./assets/Images/profilePics/user.jpg"),
     chatHistory: [
       { sent: "Hi Amlan, How are you ?", reply: "I'm Fine Bro, wbu ?" },
     ],
@@ -70,7 +69,6 @@ export const dummyData = [
     id: 5,
     username: "Amlan",
     profileImage: require("./assets/Images/profilePics/ironMan.jpeg"),
-    userImage: require("./assets/Images/profilePics/user.jpg"),
     chatHistory: [
       { sent: "Hi Amlan, How are you ?", reply: "I'm Fine Bro, wbu ?" },
     ],
@@ -80,7 +78,6 @@ export const dummyData = [
     id: 6,
     username: "Aditya",
     profileImage: require("./assets/Images/profilePics/hulk.jpg"),
-    userImage: require("./assets/Images/profilePics/user.jpg"),
     chatHistory: [
       { sent: "Hi Amlan, How are you ?", reply: "I'm Fine Bro, wbu ?" },
     ],
