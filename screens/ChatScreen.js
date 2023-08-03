@@ -72,6 +72,7 @@ const ChatScreen = ({ route }) => {
     const tempMsgs = [...chatMsgs];
     setChatMsgs([...tempMsgs, { sent: inputMsg }]);
     // chatMsgs.push({ sent: inputMsg });
+    setInputMsg("");
   }
 
   return (
@@ -90,6 +91,7 @@ const ChatScreen = ({ route }) => {
           placeholder="Type Your Message Here..."
           style={styles.textInput}
           onChangeText={textInputHandler}
+          value={inputMsg}
         />
         <Pressable onPress={sendTextHandler}>
           <Ionicons name="send" size={35} color="black" />

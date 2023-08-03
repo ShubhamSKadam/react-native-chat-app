@@ -7,9 +7,6 @@ import ChatSection from "../components/ChatSection";
 import { dummyData } from "../dummyData";
 
 const HomeScreen = () => {
-  const data = useSelector((state) => state.Chats.messageData);
-  console.log("HomeScreen", data);
-
   const [searchText, setSearchText] = useState("");
   const [filterChatData, setFilterChatData] = useState(dummyData);
 

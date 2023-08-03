@@ -10,7 +10,6 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
 function renderFavProfiles(item, navigation) {
-  console.log("renderFavProfiles", item);
   return (
     <Pressable onPress={() => navigation.navigate("Chats", { item })}>
       <View style={styles.container}>
