@@ -5,11 +5,13 @@ import {
   View,
   Image,
   TextInput,
+  Pressable,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { dummyData } from "../dummyData";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 function renderingChats(item, itemUserImage, itemProfileImage) {
   return (
@@ -58,10 +60,24 @@ const ChatScreen = ({ route }) => {
       title: item.username,
     });
   }, []);
+
+  const [inputMsg, setInputMsg] = useState("");
+  const [chatMsgs, setChatMsgs] = useState(item.chatHistory);
+
+  function textInputHandler(text) {
+    setInputMsg(text);
+  }
+
+  function sendTextHandler() {
+    const tempMsgs = [...chatMsgs];
+    setChatMsgs([...tempMsgs, { sent: inputMsg }]);
+    // chatMsgs.push({ sent: inputMsg });
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
-        data={item.chatHistory}
+        data={chatMsgs}
         renderItem={({ item }) =>
           renderingChats(item, itemUserImage, itemProfileImage)
         }
@@ -73,8 +89,11 @@ const ChatScreen = ({ route }) => {
         <TextInput
           placeholder="Type Your Message Here..."
           style={styles.textInput}
+          onChangeText={textInputHandler}
         />
-        <Ionicons name="send" size={35} color="black" />
+        <Pressable onPress={sendTextHandler}>
+          <Ionicons name="send" size={35} color="black" />
+        </Pressable>
       </View>
     </View>
   );
@@ -100,7 +119,7 @@ const styles = StyleSheet.create({
   textInput: {
     minWidth: 250,
     backgroundColor: "#f1f1f1",
-    padding: 18,
+    padding: 14,
     borderRadius: 20,
     fontSize: 18,
   },
