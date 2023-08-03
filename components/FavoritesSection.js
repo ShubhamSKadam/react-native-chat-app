@@ -29,6 +29,7 @@ const FavoritesSection = ({ dummyData }) => {
         renderItem={({ item }) => renderFavProfiles(item, navigation)}
         horizontal={true}
         keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );

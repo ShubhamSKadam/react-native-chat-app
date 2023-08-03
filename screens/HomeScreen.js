@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
 import SearchInput from "../components/SearchInput";
 import FavoritesSection from "../components/FavoritesSection";
 import React from "react";
@@ -6,16 +7,29 @@ import ChatSection from "../components/ChatSection";
 import { dummyData } from "../dummyData";
 
 const HomeScreen = () => {
+  const [searchText, setSearchText] = useState("");
+  const [filterChatData, setFilterChatData] = useState(dummyData);
+
+  const handleSearch = (text) => {
+    setSearchText(text);
+
+    const filteredData = dummyData.filter((item) =>
+      item.username.toLowerCase().includes(text.toLowerCase())
+    );
+
+    setFilterChatData(filteredData);
+  };
+
   return (
     <View style={styles.container}>
       {/* search Input */}
-      <SearchInput />
+      <SearchInput handleSearch={handleSearch} />
 
       {/* FavoritesProfile */}
-      <FavoritesSection dummyData={dummyData} />
+      <FavoritesSection dummyData={filterChatData} />
 
       {/* Chat section */}
-      <ChatSection dummyData={dummyData} />
+      <ChatSection dummyData={filterChatData} />
     </View>
   );
 };

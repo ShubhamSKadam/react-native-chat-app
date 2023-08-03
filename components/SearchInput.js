@@ -1,14 +1,18 @@
 import { View, Text, TextInput, StyleSheet, Image } from "react-native";
 import React from "react";
 
-const SearchInput = () => {
+const SearchInput = ({ handleSearch }) => {
   return (
     <View style={styles.searchContainer}>
       <Image
         source={require("../assets/Images/searchIcon.png")}
         style={styles.image}
       />
-      <TextInput placeholder="Search" style={styles.textInput} />
+      <TextInput
+        placeholder="Search"
+        style={styles.textInput}
+        onChangeText={(text) => handleSearch(text)}
+      />
     </View>
   );
 };

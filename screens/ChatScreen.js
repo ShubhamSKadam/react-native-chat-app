@@ -49,7 +49,11 @@ function renderingChats({ item }) {
 const ChatScreen = () => {
   return (
     <View style={styles.container}>
-      <FlatList data={dummyData[0].chatHistory} renderItem={renderingChats} />
+      <FlatList
+        data={dummyData[0].chatHistory}
+        renderItem={renderingChats}
+        showsVerticalScrollIndicator={false}
+      />
       <View style={styles.InputContainer}>
         <Ionicons name="camera" size={35} color="black" />
         <TextInput
@@ -72,19 +76,19 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   InputContainer: {
-    marginTop:10,
+    marginTop: 10,
     flexDirection: "row",
     marginBottom: 18,
     height: 50,
     alignItems: "center",
-    justifyContent:'space-around'
+    justifyContent: "space-around",
   },
   textInput: {
     minWidth: 250,
     backgroundColor: "#f1f1f1",
-    padding:18,
-    borderRadius:20,
-    fontSize:18,
+    padding: 18,
+    borderRadius: 20,
+    fontSize: 18,
   },
   profileImage: {
     height: 60,
