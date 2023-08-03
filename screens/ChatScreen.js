@@ -6,9 +6,10 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { dummyData } from "../dummyData";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 function renderingChats(item, itemUserImage, itemProfileImage) {
   return (
@@ -47,6 +48,14 @@ const ChatScreen = ({ route }) => {
   const { item } = route.params;
   const itemUserImage = item.userImage;
   const itemProfileImage = item.profileImage;
+
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: item.username,
+    });
+  }, []);
   return (
     <View style={styles.container}>
       <FlatList
@@ -55,7 +64,7 @@ const ChatScreen = ({ route }) => {
           renderingChats(item, itemUserImage, itemProfileImage)
         }
         showsVerticalScrollIndicator={false}
-        keyExtractor={(item,index)=> `${index}`}
+        keyExtractor={(item, index) => `${index}`}
       />
       <View style={styles.InputContainer}>
         <Ionicons name="camera" size={35} color="black" />
