@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   InputContainer: {
+    marginTop:10,
     flexDirection: "row",
     marginBottom: 18,
     height: 50,

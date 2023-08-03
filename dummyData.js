@@ -14,6 +14,15 @@ export const dummyData = [
         sent: "Anyways I'll finish it up now",
         reply: "okay bro. All the best.  🥳",
       },
+      { sent: "Hi Amlan, How are you ?", reply: "I'm Fine Bro, wbu ?" },
+      {
+        sent: "Found myself in a surprise test today 😥.",
+        reply: "oh, that's scary 😮.",
+      },
+      {
+        sent: "Anyways I'll finish it up now",
+        reply: "okay bro. All the best.  🥳",
+      },
     ],
     timeStamp: "22:10",
   },
