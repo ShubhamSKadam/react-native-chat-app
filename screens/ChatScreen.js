@@ -10,7 +10,7 @@ import React from "react";
 import { dummyData } from "../dummyData";
 import { Ionicons } from "@expo/vector-icons";
 
-function renderingChats({ item }) {
+function renderingChats(item, itemUserImage, itemProfileImage) {
   return (
     // One Bidirectional Message
     <View>
@@ -23,7 +23,7 @@ function renderingChats({ item }) {
 
         {/* Profile Image */}
         <View>
-          <Image source={dummyData[0].userImage} style={styles.profileImage} />
+          <Image source={itemUserImage} style={styles.profileImage} />
         </View>
       </View>
 
@@ -31,10 +31,7 @@ function renderingChats({ item }) {
       <View style={[styles.receiverContainer, styles.messageContainer]}>
         {/* Profile Image */}
         <View>
-          <Image
-            source={dummyData[0].profileImage}
-            style={styles.profileImage}
-          />
+          <Image source={itemProfileImage} style={styles.profileImage} />
         </View>
 
         {/*Chat Box  */}
@@ -48,14 +45,15 @@ function renderingChats({ item }) {
 
 const ChatScreen = ({ route }) => {
   const { item } = route.params;
-  console.log(item);
   const itemUserImage = item.userImage;
   const itemProfileImage = item.profileImage;
   return (
     <View style={styles.container}>
       <FlatList
         data={item.chatHistory}
-        renderItem={renderingChats}
+        renderItem={({ item }) =>
+          renderingChats(item, itemUserImage, itemProfileImage)
+        }
         showsVerticalScrollIndicator={false}
       />
       <View style={styles.InputContainer}>

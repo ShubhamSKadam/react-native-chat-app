@@ -30,6 +30,7 @@ export const dummyData = [
     id: 2,
     username: "Ryan",
     profileImage: require("./assets/Images/profilePics/ironMan.jpeg"),
+    userImage: require("./assets/Images/profilePics/user.jpg"),
     chatHistory: [
       {
         sent: "Hi Ryan, iss saturday kuch plan?",
@@ -46,6 +47,7 @@ export const dummyData = [
     id: 3,
     username: "Banner",
     profileImage: require("./assets/Images/profilePics/hulk.jpg"),
+    userImage: require("./assets/Images/profilePics/user.jpg"),
     chatHistory: [
       {
         sent: "Hi Bruce, maar peet karne chale ?",

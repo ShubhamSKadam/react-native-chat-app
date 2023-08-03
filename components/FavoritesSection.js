@@ -10,8 +10,9 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
 function renderFavProfiles(item, navigation) {
+  console.log("renderFavProfiles", item);
   return (
-    <Pressable onPress={()=> navigation.navigate('Chats')}>
+    <Pressable onPress={() => navigation.navigate("Chats", { item })}>
       <View style={styles.container}>
         <Image source={item.profileImage} style={styles.profileImg} />
         <Text style={styles.profileText}>{item.username}</Text>
