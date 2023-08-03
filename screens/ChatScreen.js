@@ -55,6 +55,7 @@ const ChatScreen = ({ route }) => {
           renderingChats(item, itemUserImage, itemProfileImage)
         }
         showsVerticalScrollIndicator={false}
+        keyExtractor={(item,index)=> `${index}`}
       />
       <View style={styles.InputContainer}>
         <Ionicons name="camera" size={35} color="black" />
