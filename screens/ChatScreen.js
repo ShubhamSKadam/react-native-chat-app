@@ -46,11 +46,15 @@ function renderingChats({ item }) {
   );
 }
 
-const ChatScreen = () => {
+const ChatScreen = ({ route }) => {
+  const { item } = route.params;
+  console.log(item);
+  const itemUserImage = item.userImage;
+  const itemProfileImage = item.profileImage;
   return (
     <View style={styles.container}>
       <FlatList
-        data={dummyData[0].chatHistory}
+        data={item.chatHistory}
         renderItem={renderingChats}
         showsVerticalScrollIndicator={false}
       />

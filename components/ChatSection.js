@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 function renderChatData(item, navigation) {
   return (
     //container
-    <Pressable onPress={() => navigation.navigate("Chats")}>
+    <Pressable onPress={() => navigation.navigate("Chats",{item})}>
       <View style={styles.container}>
         {/* Profile Image */}
         <View>
