@@ -5,7 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
 import { dummyData } from "./dummyData";
 import { Provider } from "react-redux";
-import {store} from './store'
+import { store } from "./store";
 
 const Stack = createNativeStackNavigator();
 

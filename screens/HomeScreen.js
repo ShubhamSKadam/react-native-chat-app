@@ -9,8 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const HomeScreen = () => {
   const data = useSelector((state) => state.Chats.messageData);
-  console.log("HomeScreen", data);
-
   const [searchText, setSearchText] = useState("");
   const [filterChatData, setFilterChatData] = useState(data);
 
