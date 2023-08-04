@@ -4,7 +4,7 @@ import {
   Text,
   View,
   Image,
-  Pressable,
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
@@ -15,16 +15,28 @@ function renderChatData(item, navigation, dispatch) {
     dispatch(userChatSlice.actions.setSelectedUser(item.id));
     navigation.navigate("Chats", { item });
   }
+
+  function onImagePressHander() {
+    dispatch(userChatSlice.actions.setSelectedUser(item.id));
+    navigation.navigate("ProfilePic")
+  }
+
   return (
     //container
-    <Pressable onPress={() => onPressHandler(item, navigation, dispatch)}>
-      <View style={styles.container}>
-        {/* Profile Image */}
-        <View>
-          <Image source={item.profileImage} style={styles.imageProfile} />
-        </View>
+    <View style={styles.container}>
+      {/* Profile Image */}
+      <TouchableOpacity
+        onPress={(item, navigation, dispatch) =>
+          onImagePressHander(item, navigation, dispatch)
+        }
+      >
+        <Image source={item.profileImage} style={styles.imageProfile} />
+      </TouchableOpacity>
 
-        {/* Name and recent chat */}
+      {/* Name and recent chat */}
+      <TouchableOpacity
+        onPress={() => onPressHandler(item, navigation, dispatch)}
+      >
         <View style={styles.nameRecentContainer}>
           <View style={styles.userNameContainer}>
             <Text style={styles.usernameText}>{item.username}</Text>
@@ -35,8 +47,8 @@ function renderChatData(item, navigation, dispatch) {
             <Text style={styles.grayText}>{item.timeStamp}</Text>
           </View>
         </View>
-      </View>
-    </Pressable>
+      </TouchableOpacity>
+    </View>
   );
 }
 

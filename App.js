@@ -5,6 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ChatScreen from "./screens/ChatScreen";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import ProfilePicScreen from "./screens/ProfilePicScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,10 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
           <Stack.Screen name="Chats" component={ChatScreen}></Stack.Screen>
+          <Stack.Screen
+            name="ProfilePic"
+            component={ProfilePicScreen}
+          ></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
