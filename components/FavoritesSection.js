@@ -7,7 +7,7 @@ import {
   Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { userChatSlice } from "../store/userChatSlice";
 
 function renderFavProfiles(item, navigation, dispatch) {

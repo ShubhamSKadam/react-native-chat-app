@@ -7,7 +7,7 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import React, { useEffect, useLayoutEffect } from "react";
+import React, {useLayoutEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
@@ -49,7 +49,7 @@ function renderingChats(item, itemUserImage, itemProfileImage) {
   );
 }
 
-const ChatScreen = ({ route }) => {
+const ChatScreen = () => {
   const user = useSelector((state) => state.Chats.selectedUser);
 
   const dispatch = useDispatch();
