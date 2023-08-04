@@ -11,7 +11,7 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userChatSlice } from "../store/userChatSlice";
 
 function renderingChats(item, itemUserImage, itemProfileImage) {
@@ -50,22 +50,24 @@ function renderingChats(item, itemUserImage, itemProfileImage) {
 }
 
 const ChatScreen = ({ route }) => {
+  const user = useSelector((state) => state.Chats.selectedUser);
+
   const dispatch = useDispatch();
 
   const { item } = route.params;
-  const itemUserImage = item.userImage;
-  const itemProfileImage = item.profileImage;
+  const itemUserImage = user.userImage;
+  const itemProfileImage = user.profileImage;
 
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: item.username,
+      title: user.username,
     });
   }, []);
 
   const [inputMsg, setInputMsg] = useState("");
-  const [chatMsgs, setChatMsgs] = useState(item.chatHistory);
+  const [chatMsgs, setChatMsgs] = useState(user.chatHistory);
 
   function textInputHandler(text) {
     setInputMsg(text);
