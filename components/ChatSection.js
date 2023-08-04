@@ -7,11 +7,17 @@ import {
   Pressable,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { userChatSlice } from "../store/userChatSlice";
 
-function renderChatData(item, navigation) {
+function renderChatData(item, navigation, dispatch) {
+  function onPressHandler() {
+    dispatch(userChatSlice.actions.setSelectedUser(item.id));
+    navigation.navigate("Chats", { item });
+  }
   return (
     //container
-    <Pressable onPress={() => navigation.navigate("Chats",{item})}>
+    <Pressable onPress={() => onPressHandler(item, navigation, dispatch)}>
       <View style={styles.container}>
         {/* Profile Image */}
         <View>
@@ -35,12 +41,13 @@ function renderChatData(item, navigation) {
 }
 
 const ChatSection = ({ dummyData }) => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   return (
     <View style={styles.listContainer}>
       <FlatList
         data={dummyData}
-        renderItem={({ item }) => renderChatData(item, navigation)}
+        renderItem={({ item }) => renderChatData(item, navigation, dispatch)}
         keyExtractor={(item) => item.id}
       />
     </View>

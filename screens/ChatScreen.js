@@ -8,10 +8,11 @@ import {
   Pressable,
 } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
-import { dummyData } from "../dummyData";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userChatSlice } from "../store/userChatSlice";
 
 function renderingChats(item, itemUserImage, itemProfileImage) {
   return (
@@ -49,6 +50,8 @@ function renderingChats(item, itemUserImage, itemProfileImage) {
 }
 
 const ChatScreen = ({ route }) => {
+  const dispatch = useDispatch();
+
   const { item } = route.params;
   const itemUserImage = item.userImage;
   const itemProfileImage = item.profileImage;
@@ -71,10 +74,11 @@ const ChatScreen = ({ route }) => {
   function sendTextHandler() {
     const tempMsgs = [...chatMsgs];
     setChatMsgs([...tempMsgs, { sent: inputMsg }]);
-    // chatMsgs.push({ sent: inputMsg });
+    dispatch(userChatSlice.actions.addChat({ sent: inputMsg }));
     setInputMsg("");
   }
 
+  console.log(chatMsgs);
   return (
     <View style={styles.container}>
       <FlatList

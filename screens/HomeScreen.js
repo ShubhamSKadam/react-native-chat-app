@@ -3,9 +3,12 @@ import { useState } from "react";
 import SearchInput from "../components/SearchInput";
 import FavoritesSection from "../components/FavoritesSection";
 import ChatSection from "../components/ChatSection";
-import { dummyData } from "../dummyData";
+import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
+  // retrieving the dummyData from the store
+  const dummyData = useSelector((state) => state.Chats.dummyData);
+
   const [searchText, setSearchText] = useState("");
   const [filterChatData, setFilterChatData] = useState(dummyData);
 
