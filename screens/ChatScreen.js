@@ -54,7 +54,6 @@ const ChatScreen = ({ route }) => {
 
   const dispatch = useDispatch();
 
-  const { item } = route.params;
   const itemUserImage = user.userImage;
   const itemProfileImage = user.profileImage;
 
